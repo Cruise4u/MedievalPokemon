@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/Library/
+/ArtifactDB/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -64,8 +66,7 @@ sysinfo.txt
 *.app
 
 #Artifact and Library files
-/Library/
-/ArtifactDB/
+
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -76,3 +77,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/My project (1)/Library/PackageCache
+/My project (1)/Library
