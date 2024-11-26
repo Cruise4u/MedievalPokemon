@@ -5,45 +5,97 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     public TextMeshProUGUI TurnManagerToast;
-
+    private bool _hasCombatStarted;
+ 
+    public int TurnCount;
     public int TurnID;
-    public SquadStats squadOne;
-    public SquadStats squadTwo;
+    public SquadManager squadOne;
+    public SquadManager squadTwo;
 
     public List<SquadStats> SquadStatsList;
+
+    public int GetSquadWaitingForTurn()
+    {
+        int value = -1;
+        if(squadOne.IsTurnFinished() == false && squadTwo.IsTurnFinished() == true)
+        {
+            value = 0;
+        }
+        else if(squadOne.IsTurnFinished() == true && squadTwo.IsTurnFinished() == false)
+        {
+            value = 1;
+        }
+        return value;
+    }
+
+    public bool HasCombatStarted()
+    {
+        return _hasCombatStarted;
+    }
+
+    public bool HasSquadPlayedThisTurn(int squadID)
+    {
+        bool condition = false;
+        if(squadID == 0)
+        {
+            condition = squadOne.IsTurnFinished();
+        }
+        else
+        {
+            condition = squadTwo.IsTurnFinished();
+        }
+        return condition;
+    }
+    public bool HasBothSquadsPlayedThisTurn()
+    {
+        if (squadOne.IsTurnFinished() == true && squadTwo.IsTurnFinished() == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void ResetTurns()
+    {
+        TurnCount += 1;
+        squadOne.ResetTurn();
+        squadTwo.ResetTurn();
+        Debug.Log("Reseting Turn Data..");
+    }
+
+    public void Init()
+    {
+        _hasCombatStarted = true;
+        TurnID = -1;
+        TurnCount = -1;
+        AssignSquadStats();
+        InitializeSquads();
+    }
+
+    public void InitializeSquads()
+    {
+        squadOne.Init();
+        squadTwo.Init();
+    }
 
     public void AssignSquadStats()
     {
         SquadStatsList = new List<SquadStats>();
-        SquadStatsList.Add(squadOne);
-        SquadStatsList.Add(squadTwo);
-        SquadStats[] squadStatsArray = FindObjectsOfType<SquadStats>();
-        foreach (SquadStats stats in squadStatsArray)
+        SquadStatsList.Add(squadOne.SquadStats);
+        SquadStatsList.Add(squadTwo.SquadStats);
+        foreach(SquadStats stats in SquadStatsList)
         {
-            if (stats.squadID == 0)
-            {
-                SquadStatsList.Add(stats);
-            }
-            else
-            {
-                SquadStatsList.Add(stats);
-            }
+            stats.Init();
         }
-    }
-
-
-    public void Init()
-    {
-        TurnID = -1;
-        AssignSquadStats();
     }
 
     public void CheckSquadSpeed()
     {
-        Debug.Log("Squad One Speed is :" + SquadStatsList[0].SquadSpeed);
-        Debug.Log("Squad Two Speed is :" + SquadStatsList[1].SquadSpeed);
-
-
+        Debug.Log("Checking Squad Speed");
+        Debug.Log("Turn n: "+ TurnCount);
         if (SquadStatsList[0].SquadSpeed > SquadStatsList[1].SquadSpeed)
         {
             TurnID = 0;
@@ -52,12 +104,38 @@ public class TurnManager : MonoBehaviour
         {
             TurnID = 1;
         }
-        GUIManager.DisplayTurn(TurnManagerToast, TurnID);
+        DisplayTurn();
     }
 
+
+
+    public bool IsSquadSpeedHighest(int squadListArrayElement)
+    {
+        if(squadListArrayElement == 0)
+        {
+            if (SquadStatsList[0].SquadSpeed >= SquadStatsList[1].SquadSpeed)
+            {
+                TurnID = 0;
+            }
+        }
+        else
+        {
+            if (SquadStatsList[0].SquadSpeed < SquadStatsList[1].SquadSpeed)
+            {
+                TurnID = 1;
+            }
+        }
+        return true;
+    }
+
+    public void DisplayTurn()
+    {
+        GUIDisplayHelper.DisplayTurn(TurnManagerToast, TurnID);
+        Debug.Log("Turn ID is : ..." + TurnID);
+    }
 }
 
-public static class GUIManager
+public static class GUIDisplayHelper
 {
     public static void DisplayTurn(TextMeshProUGUI text,int turnID)
     {

@@ -42,20 +42,7 @@ public class CharacterStats : MonoBehaviour
         Debug.Log("Current HP is : " + CurrentHealth);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
 
-        }
-    }
-
-    public void Start()
-    {
-        SetStats();
-        ShowHealthStats();
-    }
 }
 
 //public class GameManager : MonoBehaviour

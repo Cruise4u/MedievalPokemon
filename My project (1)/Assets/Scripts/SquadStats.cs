@@ -19,6 +19,8 @@ public class SquadStats : MonoBehaviour
     {
         foreach(CharacterStats character in characterStatList)
         {
+            character.SetStats();
+            character.ShowHealthStats();
             _squadSpeed = 0;
             _squadSpeed += character.CurrentSpeed;
         }
@@ -31,6 +33,7 @@ public class SquadStats : MonoBehaviour
 
 
 }
+
 
 //public class GameManager : MonoBehaviour
 //{

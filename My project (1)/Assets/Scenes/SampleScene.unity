@@ -233,6 +233,9 @@ GameObject:
   m_Component:
   - component: {fileID: 176134745}
   - component: {fileID: 176134746}
+  - component: {fileID: 176134747}
+  - component: {fileID: 176134749}
+  - component: {fileID: 176134748}
   m_Layer: 0
   m_Name: Squad_Player
   m_TagString: Untagged
@@ -271,6 +274,56 @@ MonoBehaviour:
   squadID: 0
   characterStatList:
   - {fileID: 1854708140}
+--- !u!114 &176134747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176134744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8523f1285f48d47a3daac6637eb865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquadStats: {fileID: 176134746}
+--- !u!114 &176134748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176134744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 42dc3eb94b2dc7043a6013a692dfbc81, type: 2}
+--- !u!114 &176134749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176134744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Game
+      Manager","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Enemy
+      Squad","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 927460136}
+    - {fileID: 220587724}
 --- !u!1 &220587724
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +334,9 @@ GameObject:
   m_Component:
   - component: {fileID: 220587725}
   - component: {fileID: 220587726}
+  - component: {fileID: 220587727}
+  - component: {fileID: 220587729}
+  - component: {fileID: 220587728}
   m_Layer: 0
   m_Name: Squad_AI
   m_TagString: Untagged
@@ -319,6 +375,56 @@ MonoBehaviour:
   squadID: 1
   characterStatList:
   - {fileID: 131293357}
+--- !u!114 &220587727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220587724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8523f1285f48d47a3daac6637eb865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquadStats: {fileID: 220587726}
+--- !u!114 &220587728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220587724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 42dc3eb94b2dc7043a6013a692dfbc81, type: 2}
+--- !u!114 &220587729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220587724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Game
+      Manager","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Enemy
+      Squad","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 927460136}
+    - {fileID: 176134744}
 --- !u!1 &251194639
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,8 +724,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Player
+      Squad","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"AI
+      Squad","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 176134744}
+    - {fileID: 220587724}
 --- !u!114 &927460140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,10 +744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7159d35e8e772a429e7987c7c663ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnManagerToast: {fileID: 1636420769}
+  TurnManagerToast: {fileID: 1500090062}
+  TurnCount: 0
   TurnID: 0
-  squadOne: {fileID: 176134746}
-  squadTwo: {fileID: 220587726}
+  squadOne: {fileID: 176134747}
+  squadTwo: {fileID: 220587727}
   SquadStatsList: []
 --- !u!1 &1337352412
 GameObject:
