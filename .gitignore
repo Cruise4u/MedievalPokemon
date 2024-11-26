@@ -79,3 +79,29 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /My project (1)/Library/PackageCache
 /My project (1)/Library
+*.log
+My project (1)/Temp/workerlic
+My project (1)/Temp/UnityLockfile
+My project (1)/Temp/FSTimeGet-d543b8249ad3edd438618fd39d3ef04f
+My project (1)/Temp/FSTimeGet-c687057678f366f488a0b433179d4532
+My project (1)/Temp/FSTimeGet-745b5841dd423e846bc3b7ecfc28341e
+My project (1)/Temp/__Backupscenes/0.backup
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe9.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe8.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe7.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe6.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe5.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe4.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe3.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe2.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe11.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe10.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe1.log
+My project (1)/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+My project (1)/Logs/shadercompiler-AssetImportWorker0.log
+My project (1)/Logs/AssetImportWorker3.log
+My project (1)/Logs/AssetImportWorker2.log
+My project (1)/Logs/AssetImportWorker1.log
+My project (1)/Logs/AssetImportWorker1-prev.log
+My project (1)/Logs/AssetImportWorker0.log
+My project (1)/Logs/AssetImportWorker0-prev.log
