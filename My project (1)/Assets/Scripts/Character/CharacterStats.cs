@@ -12,6 +12,8 @@ public class CharacterStats : MonoBehaviour
     public int MaxSpeed { get => _maxSpeed; set => _maxSpeed = value; } 
     public int CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
+    public bool IsStunned { get => _isStunned; set => _isStunned = value; }
+
     [SerializeField]
     private int _maxHealth;
     private int _currentHealth;
@@ -24,11 +26,16 @@ public class CharacterStats : MonoBehaviour
     private int _maxSpeed;
     private int _currentSpeed;
 
+    [SerializeField]
+    private bool _isStunned;
+
+
     public void SetStats()
     {
         _currentHealth = _maxHealth;
         _currentAttackPower = _maxAttackPower;
         _currentSpeed = _maxSpeed;
+        _isStunned = false;
     }
 
     public void Init()

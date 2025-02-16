@@ -15,13 +15,3 @@ public static class GUIDisplayHelper
         }
     }
 }
-
-public class GUIToast
-{
-
-}
-
-public class GUIToastAnimation
-{
-
-}
