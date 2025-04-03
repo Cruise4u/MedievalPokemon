@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SquadStats : MonoBehaviour
 {
-
     public List<CharacterStats> characterStatList;
 
     public int SquadSpeed { get => _squadSpeed; set => _squadSpeed = value;}
@@ -25,7 +24,6 @@ public class SquadStats : MonoBehaviour
         foreach(CharacterStats character in characterStatList)
         {
             character.Init();
-            _squadSpeed = 0;
             _squadSpeed += character.CurrentSpeed;
         }
     }

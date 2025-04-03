@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using UnityEngine;
 
 
 public static class GUIDisplayHelper
@@ -23,5 +24,22 @@ public class GUIToast
 
 public class GUIToastAnimation
 {
+
+}
+
+public class GUICombatMenu : MonoBehaviour
+{
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

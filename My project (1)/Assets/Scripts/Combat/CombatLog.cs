@@ -2,5 +2,12 @@
 
 public class CombatLog : MonoBehaviour
 {
+    public void DescribeCombat()
+    {
+
+    }
+
 
 }
+
+

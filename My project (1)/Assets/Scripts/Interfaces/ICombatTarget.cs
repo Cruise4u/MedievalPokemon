@@ -1,5 +1,16 @@
-﻿public interface ICombatTarget
+﻿using UnityEngine;
+
+public interface ICombatTarget
 {
-    void TakeDamage(int damage);
+    GameObject GetTargetGO();
+
+    void GetStats(CharacterStats stats);
+
+    void GetWithAbilityEffect(ECombatOperation op,int value);
 }
 
+public enum ECombatOperation
+{
+    Attack,
+    Heal,
+}

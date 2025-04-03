@@ -1,38 +1,60 @@
 ﻿using UnityEngine;
 
-public class SquadUnit : MonoBehaviour, ICombatTarget
+public class SquadUnit : MonoBehaviour,ICombatTarget
 {
+    public ETeamTag TeamTag;
+    private ICombatTarget _selfTarget;
+
     private CharacterStats _characterStats;
-    private TargetReference _targetRef;
 
     public CharacterStats CharacterStats { get { return _characterStats; } set { _characterStats = value; } }
-    public TargetReference TargetReference { get { return _targetRef; } set { _targetRef = value; } }
 
+    public void GetWithAbilityEffect()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void GetStats(CharacterStats stats)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Init()
     {
         _characterStats = GetComponent<CharacterStats>();
-        _targetRef = GetComponent<TargetReference>();
         _characterStats.SetStats();
         _characterStats.ShowHealthStats();
     }
 
-    public void AttackTarget(ICombatTarget target)
+    public GameObject GetTargetGO()
     {
-        target.TakeDamage(_characterStats.CurrentAttackPower);
+        return gameObject;
     }
 
-    public int GetHP()
+    public void GetWithAbilityEffect(ECombatOperation op, int value)
     {
-        return CharacterStats.CurrentHealth;
+        if(op == ECombatOperation.Attack)
+        {
+            if(value >= _characterStats.CurrentHealth)
+            {
+                _characterStats.CurrentHealth = 0;
+            }
+            else
+            {
+                _characterStats.CurrentHealth -= value;
+            }
+        }
+        else if(op == ECombatOperation.Heal)
+        {
+            if(value >= _characterStats.MaxHealth || _characterStats.CurrentHealth + value == _characterStats.MaxHealth)
+            {
+                _characterStats.MaxHealth = value;
+                _characterStats.CurrentHealth = _characterStats.MaxHealth;
+            }
+            else
+            {
+                _characterStats.CurrentHealth += value;
+            }
+        }
     }
-
-    public void TakeDamage(int damage)
-    {
-        var newHP = CharacterStats.CurrentHealth;
-        newHP -= damage;
-        CharacterStats.CurrentHealth = newHP;
-    }
-
-
 }

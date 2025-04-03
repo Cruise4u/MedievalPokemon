@@ -7,25 +7,25 @@ using UnityEngine;
 public class TargetManager : ManagerBase
 {
     public ETeamTag EnemyTag;
-    public TargetReference TargetSelected;
+    public ICombatTarget Target;
     public int TargetIndex;
 
     public event Action<GameObject, bool> OnTargetSelected;
 
     [SerializeField]
-    private List<TargetReference> _targetList;
+    private List<ICombatTarget> _targetList;
     private List<GameObject> _targetGOList;
 
     private void FetchEnemyTargets()
     {
         //Get All targets with the EnemyTag into a single Array
-        var targetArray = FindObjectsOfType<TargetReference>()
+        var targetArray = FindObjectsOfType<SquadUnit>()
             .Where(target => target.TeamTag == EnemyTag)
             .ToArray();
         for(int i = 0; i < targetArray.Length; i++)
         {
             _targetList.Add(targetArray[i]);
-            _targetGOList.Add(_targetList[i].gameObject);
+            _targetGOList.Add(_targetList[i].GetTargetGO());
         }
     }
 
@@ -33,12 +33,12 @@ public class TargetManager : ManagerBase
     {
         _targetList.Clear();
         _targetGOList.Clear();
-        TargetSelected = null;
+        Target = null;
     }
 
     public void AddTargets(ETeamTag tag)
     {
-        var targets = FindObjectsOfType<TargetReference>()
+        var targets = FindObjectsOfType<SquadUnit>()
             .Where(target => target.TeamTag == tag)
             .ToArray();
 
@@ -49,18 +49,18 @@ public class TargetManager : ManagerBase
         }
     }
 
-    public void RemoveTarget(TargetReference target)
+    public void RemoveTarget(ICombatTarget target)
     {
         if (target != null)
         {
             _targetList.Remove(target);
-            _targetGOList.Remove(target.gameObject);
+            _targetGOList.Remove(target.GetTargetGO());
         }
     }
 
     public void ChooseTarget()
     {
-        TargetSelected = _targetList[TargetIndex];
+        Target = _targetList[TargetIndex];
     }
 
     public void NextTarget()
@@ -87,7 +87,7 @@ public class TargetManager : ManagerBase
 
     public override IEnumerator Init()
     {
-        _targetList = new List<TargetReference>();
+        _targetList = new List<ICombatTarget>();
         _targetGOList = new List<GameObject>();
         FetchEnemyTargets();
         TargetIndex = 0;
